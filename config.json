@@ -1,0 +1,164 @@
+{
+  "currency": "inr",
+  "_origins": "Airports you fly OUT of, with the extra cost (INR) to get there from Chennai. Added to the fare before comparing.",
+  "origins": {
+    "MAA": 0,
+    "BLR": 1000,
+    "DEL": 6000
+  },
+  "_return_airports": "Airports you can land at coming home (one_way_back), with the cost to get on to Chennai.",
+  "return_airports": {
+    "MAA": 0,
+    "BLR": 1000,
+    "DEL": 6000,
+    "BOM": 5000,
+    "HYD": 3500
+  },
+  "trip_types": [
+    "round_trip",
+    "one_way_out",
+    "one_way_back"
+  ],
+  "_relative_drop": "Alert when the effective price is at least this far below the route's usual (median) price. Kept high so only real steals ping.",
+  "relative_drop": 0.45,
+  "min_history": 8,
+  "history_keep": 90,
+  "realert_after_days": 3,
+  "max_transfers": 2,
+  "_regions": "No-brainer prices (INR, effective) per region and trip type. Anything at or under these always alerts.",
+  "regions": {
+    "europe": {
+      "round_trip": 38000,
+      "one_way_out": 20000,
+      "one_way_back": 20000,
+      "destinations": {
+        "AMS": "Amsterdam",
+        "PAR": "Paris",
+        "BER": "Berlin",
+        "FRA": "Frankfurt",
+        "MUC": "Munich",
+        "ROM": "Rome",
+        "MIL": "Milan",
+        "MAD": "Madrid",
+        "BCN": "Barcelona",
+        "LIS": "Lisbon",
+        "BRU": "Brussels",
+        "VIE": "Vienna",
+        "ZRH": "Zurich",
+        "GVA": "Geneva",
+        "PRG": "Prague",
+        "BUD": "Budapest",
+        "WAW": "Warsaw",
+        "CPH": "Copenhagen",
+        "STO": "Stockholm",
+        "OSL": "Oslo",
+        "HEL": "Helsinki",
+        "ATH": "Athens",
+        "LUX": "Luxembourg",
+        "MLA": "Malta",
+        "ZAG": "Zagreb",
+        "LJU": "Ljubljana",
+        "BTS": "Bratislava",
+        "RIX": "Riga",
+        "TLL": "Tallinn",
+        "VNO": "Vilnius",
+        "REK": "Reykjavik",
+        "SOF": "Sofia",
+        "BUH": "Bucharest",
+        "TIA": "Tirana (Albania, visa-free w/ Schengen/US visa)",
+        "TGD": "Podgorica (Montenegro, visa-free w/ Schengen/US visa)",
+        "BEG": "Belgrade (Serbia, visa-free w/ Schengen/US visa)"
+      }
+    },
+    "usa": {
+      "round_trip": 60000,
+      "one_way_out": 32000,
+      "one_way_back": 35000,
+      "destinations": {
+        "NYC": "New York",
+        "SFO": "San Francisco",
+        "LAX": "Los Angeles",
+        "CHI": "Chicago",
+        "WAS": "Washington DC",
+        "BOS": "Boston",
+        "SEA": "Seattle",
+        "DFW": "Dallas"
+      }
+    },
+    "latam": {
+      "round_trip": 70000,
+      "one_way_out": 38000,
+      "one_way_back": 40000,
+      "destinations": {
+        "MEX": "Mexico City (visa-free w/ US visa)",
+        "CUN": "Cancun (visa-free w/ US visa)",
+        "SJO": "San Jose, Costa Rica (visa-free w/ US visa)",
+        "PTY": "Panama City (visa-free w/ US visa)"
+      }
+    },
+    "nearby": {
+      "round_trip": 14000,
+      "one_way_out": 7000,
+      "one_way_back": 7000,
+      "destinations": {
+        "DXB": "Dubai (visa on arrival w/ US visa)",
+        "IST": "Istanbul (e-visa w/ Schengen/US visa)",
+        "TBS": "Tbilisi (Georgia, visa-free w/ Schengen/US visa)"
+      }
+    }
+  },
+  "_blogs": "Hand-picked deals from US deal blogs (WordPress sites). A post is forwarded when its destination matches a destination name from the regions below (except skip_regions) or an extra keyword.",
+  "blogs": {
+    "sites": [
+      "escape.flights",
+      "escapehouston.com",
+      "cheapdfw.com",
+      "escapeatx.com"
+    ],
+    "max_age_hours": 48,
+    "skip_regions": [
+      "usa"
+    ],
+    "extra_keywords": [
+      "India",
+      "Delhi",
+      "Mumbai",
+      "Bangalore",
+      "Bengaluru",
+      "Chennai",
+      "Hyderabad",
+      "Kochi",
+      "Singapore",
+      "Dubai",
+      "Abu Dhabi",
+      "Doha",
+      "Kuala Lumpur",
+      "Bangkok",
+      "Colombo",
+      "Europe",
+      "Italy",
+      "Spain",
+      "France",
+      "Germany",
+      "Portugal",
+      "Greece",
+      "Netherlands",
+      "Switzerland",
+      "Iceland",
+      "Croatia",
+      "Austria",
+      "Belgium",
+      "Czech",
+      "Poland",
+      "Sweden",
+      "Norway",
+      "Denmark",
+      "Finland",
+      "Mexico",
+      "Costa Rica",
+      "Panama",
+      "Turkey",
+      "Georgia"
+    ]
+  }
+}
