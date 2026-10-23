@@ -2,8 +2,8 @@
 """Forward hand-picked deals from US deal blogs to Telegram.
 
 Polls WordPress deal blogs (escape.flights and its sister sites) for new posts and
-forwards the ones whose destination matches a keyword in config.json, so US
-domestic and Hawaii posts are skipped.
+forwards only the ones that touch India (as origin or destination). A US-Europe
+deal is no use when you start from Chennai.
 """
 
 import html
@@ -18,25 +18,13 @@ SEEN = HERE / "data" / "blog_seen.json"
 
 
 def keywords(config):
-    """Destination names from the regions plus the extra blog keywords."""
-    words = set(config["blogs"]["extra_keywords"])
-    for region, spec in config["regions"].items():
-        if region in config["blogs"]["skip_regions"]:
-            continue
-        for name in spec["destinations"].values():
-            words.add(name.split("(")[0].split(",")[0].strip())
-    return {w.lower() for w in words if w}
-
-
-def destination_part(title):
-    """'Cheap Flights: Los Angeles to Singapore $313...' -> 'Singapore'."""
-    m = re.search(r"\bto(?:/from)?\s+(.*?)\s*\$", title)
-    return m.group(1) if m else title
+    return {w.lower() for w in config["blogs"]["india_keywords"]}
 
 
 def matches(title, words):
-    dest = destination_part(title).lower()
-    return any(re.search(rf"\b{re.escape(w)}\b", dest) for w in words)
+    """True if the title names an Indian city anywhere ('Delhi to Paris' or 'Paris to Delhi')."""
+    title = title.lower()
+    return any(re.search(rf"\b{re.escape(w)}\b", title) for w in words)
 
 
 def fetch_posts(site):

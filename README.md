@@ -22,10 +22,9 @@ or other easy-visa countries is unusually cheap.
 
 ### Deal blogs (`blogs.py`)
 Also forwards new posts from US deal blogs (escape.flights, escapehouston.com,
-cheapdfw.com, escapeatx.com). People there find sales and fares airlines quietly sell
-through OTAs, like the $313 LAX→Singapore Singapore Airlines one-way. Only posts going to
-Europe, India, Asian hubs toward India, or easy-visa countries are sent. US domestic and
-Hawaii posts are skipped. Change the list under `blogs` in `config.json`.
+cheapdfw.com, escapeatx.com). Only posts whose title mentions an Indian city (as origin
+or destination) are sent; US-Europe, US-Asia and US domestic deals are skipped. Change
+`india_keywords` under `blogs` in `config.json`.
 
 ## Setup (one time)
 1. **Travelpayouts token**: sign up at travelpayouts.com → Profile → API token.

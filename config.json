@@ -107,7 +107,7 @@
       }
     }
   },
-  "_blogs": "Hand-picked deals from US deal blogs (WordPress sites). A post is forwarded when its destination matches a destination name from the regions below (except skip_regions) or an extra keyword.",
+  "_blogs": "Hand-picked deals from US deal blogs (WordPress sites). A post is forwarded only when its title mentions India (origin or destination), since US-Europe and US-Asia deals are no use from Chennai.",
   "blogs": {
     "sites": [
       "escape.flights",
@@ -116,49 +116,27 @@
       "escapeatx.com"
     ],
     "max_age_hours": 48,
-    "skip_regions": [
-      "usa"
-    ],
-    "extra_keywords": [
+    "india_keywords": [
       "India",
       "Delhi",
       "Mumbai",
+      "Bombay",
       "Bangalore",
       "Bengaluru",
       "Chennai",
+      "Madras",
       "Hyderabad",
       "Kochi",
-      "Singapore",
-      "Dubai",
-      "Abu Dhabi",
-      "Doha",
-      "Kuala Lumpur",
-      "Bangkok",
-      "Colombo",
-      "Europe",
-      "Italy",
-      "Spain",
-      "France",
-      "Germany",
-      "Portugal",
-      "Greece",
-      "Netherlands",
-      "Switzerland",
-      "Iceland",
-      "Croatia",
-      "Austria",
-      "Belgium",
-      "Czech",
-      "Poland",
-      "Sweden",
-      "Norway",
-      "Denmark",
-      "Finland",
-      "Mexico",
-      "Costa Rica",
-      "Panama",
-      "Turkey",
-      "Georgia"
+      "Cochin",
+      "Kolkata",
+      "Calcutta",
+      "Goa",
+      "Ahmedabad",
+      "Amritsar",
+      "Trivandrum",
+      "Thiruvananthapuram",
+      "Coimbatore",
+      "Pune"
     ]
   }
 }
