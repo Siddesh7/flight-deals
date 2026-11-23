@@ -32,6 +32,16 @@ class SearchesTest(unittest.TestCase):
         keys = [s[0] for s in deals.searches(config)]
         self.assertEqual(keys, ["MAA-AMS-round_trip", "AMS-MAA-one_way_back", "AMS-DEL-one_way_back"])
 
+    def test_focus_months_add_dated_searches(self):
+        config = {
+            "origins": {"MAA": 0},
+            "trip_types": ["round_trip"],
+            "return_airports": {},
+            "regions": {"japan": {"destinations": {"TYO": "Tokyo"}, "focus_months": ["2027-02"]}},
+        }
+        found = [(s[0], s[-1]) for s in deals.searches(config)]
+        self.assertEqual(found, [("MAA-TYO-round_trip", None), ("MAA-TYO-round_trip@2027-02", "2027-02")])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -83,6 +83,21 @@
         "BOS": "Boston",
         "SEA": "Seattle",
         "DFW": "Dallas"
+      },
+      "focus_months": [
+        "2027-02"
+      ]
+    },
+    "japan": {
+      "round_trip": 40000,
+      "one_way_out": 20000,
+      "one_way_back": 22000,
+      "focus_months": [
+        "2027-02"
+      ],
+      "destinations": {
+        "TYO": "Tokyo (e-visa for Indians)",
+        "OSA": "Osaka (e-visa for Indians)"
       }
     },
     "latam": {
@@ -138,5 +153,6 @@
       "Coimbatore",
       "Pune"
     ]
-  }
+  },
+  "_focus_months": "Optional per region: extra searches for flights leaving in these months (YYYY-MM), on top of the any-date search. Remove a month once it's past."
 }

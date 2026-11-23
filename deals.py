@@ -58,7 +58,7 @@ def http_get_json(url, retries=3):
     return None
 
 
-def fetch_fares(token, origin, destination, one_way, currency):
+def fetch_fares(token, origin, destination, one_way, currency, month=None):
     params = {
         "origin": origin,
         "destination": destination,
@@ -68,6 +68,8 @@ def fetch_fares(token, origin, destination, one_way, currency):
         "limit": 30,
         "token": token,
     }
+    if month:
+        params["departure_at"] = month  # YYYY-MM: only flights leaving that month
     data = http_get_json(f"{API}?{urllib.parse.urlencode(params)}")
     if not data or not data.get("success"):
         return []
@@ -75,16 +77,24 @@ def fetch_fares(token, origin, destination, one_way, currency):
 
 
 def searches(config):
-    """Yield (route_key, region, trip_type, api_origin, api_dest, india_airport, dest_name)."""
+    """Yield (route_key, region, trip_type, api_origin, api_dest, india_airport, dest_name, month).
+
+    Every route is searched for any date (month None). Regions with "focus_months"
+    are also searched for flights leaving in each of those months, tracked under
+    their own key (e.g. "MAA-TYO-round_trip@2027-02") so they get their own median.
+    """
     for region, spec in config["regions"].items():
+        months = [None] + spec.get("focus_months", [])
         for dest, name in spec["destinations"].items():
             for trip in config["trip_types"]:
                 if trip == "one_way_back":
-                    for home in config["return_airports"]:
-                        yield f"{dest}-{home}-{trip}", region, trip, dest, home, home, name
+                    pairs = [(f"{dest}-{home}", dest, home, home) for home in config["return_airports"]]
                 else:
-                    for home in config["origins"]:
-                        yield f"{home}-{dest}-{trip}", region, trip, home, dest, home, name
+                    pairs = [(f"{home}-{dest}", home, dest, home) for home in config["origins"]]
+                for month in months:
+                    for route, o, d, home in pairs:
+                        key = f"{route}-{trip}" + (f"@{month}" if month else "")
+                        yield key, region, trip, o, d, home, name, month
 
 
 def threshold(config, region, trip):
@@ -124,7 +134,7 @@ def format_alert(deal):
     lines = [
         f"✈️ <b>{t['origin']} → {t['destination']}</b> · {deal['dest_name']}",
         f"{trip_label} · <b>₹{t['price']:,}</b> ({t.get('airline', '?')})",
-        f"Dates: {dates}",
+        f"Dates: {dates}" + (f" (your {deal['month']} search)" if deal.get("month") else ""),
         f"Stops: {stops}",
     ]
     if deal["positioning"]:
@@ -167,8 +177,8 @@ def main():
                if datetime.fromisoformat(v) > realert_cutoff}
 
     deals = []
-    for key, region, trip, o, d, home, name in searches(config):
-        tickets = fetch_fares(token, o, d, trip != "round_trip", config["currency"])
+    for key, region, trip, o, d, home, name, month in searches(config):
+        tickets = fetch_fares(token, o, d, trip != "round_trip", config["currency"], month)
         tickets = [t for t in tickets
                    if t.get("transfers", 0) <= config["max_transfers"]
                    and (t.get("return_transfers") or 0) <= config["max_transfers"]]
@@ -194,6 +204,7 @@ def main():
         deals.append({
             "ticket": best, "trip": trip, "dest_name": name, "home": home,
             "positioning": positioning, "effective": effective, "reasons": reasons,
+            "month": month,
         })
 
     deals.sort(key=lambda x: x["effective"])

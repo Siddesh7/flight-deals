@@ -38,7 +38,8 @@ or destination) are sent; US-Europe, US-Asia and US domestic deals are skipped. 
 
 ## Tweaking
 Everything is in `config.json`: outbound and return airports with their positioning cost, regions, destinations,
-no-brainer prices, the % drop, and max stops.
+no-brainer prices, the % drop, and max stops. Add `"focus_months": ["2027-02"]` to a region to also
+search flights leaving in that month (on top of the any-date search); drop the month once it's past.
 
 ## Run locally
 ```bash
