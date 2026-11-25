@@ -100,6 +100,42 @@
         "OSA": "Osaka (e-visa for Indians)"
       }
     },
+    "east_asia": {
+      "round_trip": 35000,
+      "one_way_out": 18000,
+      "one_way_back": 20000,
+      "destinations": {
+        "PVG": "Shanghai (visa needed)",
+        "PEK": "Beijing (visa needed)",
+        "CAN": "Guangzhou (visa needed)",
+        "SEL": "Seoul (visa needed)"
+      }
+    },
+    "southeast_asia": {
+      "round_trip": 15000,
+      "one_way_out": 7000,
+      "one_way_back": 8000,
+      "destinations": {
+        "BKK": "Bangkok (visa-free)",
+        "HKT": "Phuket (visa-free)",
+        "KUL": "Kuala Lumpur (visa-free)",
+        "SIN": "Singapore (visa needed)",
+        "DPS": "Bali (visa on arrival)",
+        "HAN": "Hanoi (e-visa)",
+        "SGN": "Ho Chi Minh City (e-visa)",
+        "DAD": "Da Nang (e-visa)"
+      }
+    },
+    "australia": {
+      "round_trip": 45000,
+      "one_way_out": 22000,
+      "one_way_back": 25000,
+      "destinations": {
+        "SYD": "Sydney (visa needed)",
+        "MEL": "Melbourne (visa needed)",
+        "PER": "Perth (visa needed)"
+      }
+    },
     "latam": {
       "round_trip": 70000,
       "one_way_out": 38000,
@@ -122,13 +158,14 @@
       }
     }
   },
-  "_blogs": "Hand-picked deals from US deal blogs (WordPress sites). A post is forwarded only when its title mentions India (origin or destination), since US-Europe and US-Asia deals are no use from Chennai.",
+  "_blogs": "Hand-picked deals from deal blogs: WordPress sites (sites) and RSS feeds (rss_feeds). A post is forwarded only when its title mentions India (origin or destination), since US-Europe and US-Asia deals are no use from Chennai.",
   "blogs": {
     "sites": [
       "escape.flights",
       "escapehouston.com",
       "cheapdfw.com",
-      "escapeatx.com"
+      "escapeatx.com",
+      "www.theflightdeal.com"
     ],
     "max_age_hours": 48,
     "india_keywords": [
@@ -152,6 +189,9 @@
       "Thiruvananthapuram",
       "Coimbatore",
       "Pune"
+    ],
+    "rss_feeds": [
+      "https://www.fly4free.com/feed/"
     ]
   },
   "_focus_months": "Optional per region: extra searches for flights leaving in these months (YYYY-MM), on top of the any-date search. Remove a month once it's past."
