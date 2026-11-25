@@ -89,9 +89,9 @@
       ]
     },
     "japan": {
-      "round_trip": 40000,
-      "one_way_out": 20000,
-      "one_way_back": 22000,
+      "round_trip": 35000,
+      "one_way_out": 16000,
+      "one_way_back": 16000,
       "focus_months": [
         "2027-02"
       ],
@@ -101,9 +101,9 @@
       }
     },
     "east_asia": {
-      "round_trip": 35000,
-      "one_way_out": 18000,
-      "one_way_back": 20000,
+      "round_trip": 25000,
+      "one_way_out": 13000,
+      "one_way_back": 13000,
       "destinations": {
         "PVG": "Shanghai (visa needed)",
         "PEK": "Beijing (visa needed)",
@@ -112,9 +112,9 @@
       }
     },
     "southeast_asia": {
-      "round_trip": 15000,
+      "round_trip": 14000,
       "one_way_out": 7000,
-      "one_way_back": 8000,
+      "one_way_back": 7000,
       "destinations": {
         "BKK": "Bangkok (visa-free)",
         "HKT": "Phuket (visa-free)",
@@ -123,13 +123,15 @@
         "DPS": "Bali (visa on arrival)",
         "HAN": "Hanoi (e-visa)",
         "SGN": "Ho Chi Minh City (e-visa)",
-        "DAD": "Da Nang (e-visa)"
+        "DAD": "Da Nang (e-visa)",
+        "CNX": "Chiang Mai (visa-free)",
+        "KBV": "Krabi (visa-free)"
       }
     },
     "australia": {
-      "round_trip": 45000,
-      "one_way_out": 22000,
-      "one_way_back": 25000,
+      "round_trip": 38000,
+      "one_way_out": 18000,
+      "one_way_back": 20000,
       "destinations": {
         "SYD": "Sydney (visa needed)",
         "MEL": "Melbourne (visa needed)",
@@ -158,7 +160,7 @@
       }
     }
   },
-  "_blogs": "Hand-picked deals from deal blogs: WordPress sites (sites) and RSS feeds (rss_feeds). A post is forwarded only when its title mentions India (origin or destination), since US-Europe and US-Asia deals are no use from Chennai.",
+  "_blogs": "Hand-picked deals from deal blogs: WordPress sites (sites) and RSS feeds (rss_feeds). A post is forwarded only when its title mentions India (origin or destination), since US-Europe and US-Asia deals are no use from Chennai. Posts whose first price (converted with fx_to_inr) is above max_price_inr are skipped.",
   "blogs": {
     "sites": [
       "escape.flights",
@@ -192,7 +194,13 @@
     ],
     "rss_feeds": [
       "https://www.fly4free.com/feed/"
-    ]
+    ],
+    "max_price_inr": 50000,
+    "fx_to_inr": {
+      "$": 88,
+      "€": 95,
+      "£": 112
+    }
   },
   "_focus_months": "Optional per region: extra searches for flights leaving in these months (YYYY-MM), on top of the any-date search. Remove a month once it's past."
 }

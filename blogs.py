@@ -32,6 +32,17 @@ def matches(title, words):
     return any(re.search(rf"\b{re.escape(w)}\b", title) for w in words)
 
 
+def price_inr(title, fx):
+    """First price in the title, in INR: 'PHL - Chennai. $842' -> 74096. None if there's none."""
+    m = re.search(r"([$€£])\s?([\d,]+)", title)
+    return int(m.group(2).replace(",", "")) * fx[m.group(1)] if m else None
+
+
+def cheap_enough(title, blogs):
+    price = price_inr(title, blogs["fx_to_inr"])
+    return price is None or price <= blogs["max_price_inr"]
+
+
 def get(url):
     """Fetch a URL with a browser-ish User-Agent (some sites 403 Python's). None on failure."""
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 flight-deals"})
@@ -102,7 +113,8 @@ def main():
             if post["id"] in site_seen:
                 continue
             site_seen.add(post["id"])
-            if post["posted"] < cutoff or not matches(post["title"], words):
+            if (post["posted"] < cutoff or not matches(post["title"], words)
+                    or not cheap_enough(post["title"], blogs)):
                 continue
             send_telegram(f"📰 <b>{html.escape(post['title'])}</b>\n"
                           f'<a href="{post["link"]}">Read on {label}</a>')
