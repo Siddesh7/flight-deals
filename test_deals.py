@@ -43,5 +43,21 @@ class SearchesTest(unittest.TestCase):
         self.assertEqual(found, [("MAA-TYO-round_trip", None), ("MAA-TYO-round_trip@2027-02", "2027-02")])
 
 
+class LinksTest(unittest.TestCase):
+    def test_one_way(self):
+        t = {"origin": "SHA", "origin_airport": "PVG", "destination": "BLR",
+             "departure_at": "2027-01-29T08:15:00+08:00"}
+        (g_name, g), (s_name, s) = deals.compare_links(t)
+        self.assertIn("Flights+from+PVG+to+BLR+on+2027-01-29+one+way", g)
+        self.assertEqual(s, "https://www.skyscanner.co.in/transport/flights/pvg/blr/270129/")
+
+    def test_round_trip(self):
+        t = {"origin": "DEL", "destination": "GVA",
+             "departure_at": "2027-04-02T01:00:00+05:30", "return_at": "2027-04-09T10:00:00+02:00"}
+        (_, g), (_, s) = deals.compare_links(t)
+        self.assertIn("returning+2027-04-09", g)
+        self.assertTrue(s.endswith("/del/gva/270402/270409/"))
+
+
 if __name__ == "__main__":
     unittest.main()

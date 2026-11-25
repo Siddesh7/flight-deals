@@ -141,10 +141,27 @@ def format_alert(deal):
         lines.append(f"+ ~₹{deal['positioning']:,} to get to/from {deal['home']} "
                      f"→ effective ₹{deal['effective']:,}")
     lines.append("Why: " + "; ".join(deal["reasons"]))
+    links = [f'<a href="{url}">{name}</a>' for name, url in compare_links(t)]
     if t.get("link"):
-        lines.append(f'<a href="https://www.aviasales.com{t["link"]}">Book / check it</a>')
+        links.insert(0, f'<a href="https://www.aviasales.com{t["link"]}">Aviasales</a>')
+    lines.append("Check: " + " · ".join(links))
     lines.append("<i>Cached fare. Verify before booking.</i>")
     return "\n".join(lines)
+
+
+def compare_links(t):
+    """Google Flights and Skyscanner searches for the same route and dates (live prices)."""
+    o = t.get("origin_airport") or t["origin"]
+    d = t.get("destination_airport") or t["destination"]
+    out, back = fmt_date(t.get("departure_at")), fmt_date(t.get("return_at"))
+    if not out:
+        return []
+    q = f"Flights from {o} to {d} on {out}" + (f" returning {back}" if back else " one way")
+    sky = f"https://www.skyscanner.co.in/transport/flights/{o.lower()}/{d.lower()}/{out[2:].replace('-', '')}/"
+    if back:
+        sky += f"{back[2:].replace('-', '')}/"
+    return [("Google Flights", "https://www.google.com/travel/flights?" + urllib.parse.urlencode({"q": q, "curr": "INR"})),
+            ("Skyscanner", sky)]
 
 
 def send_telegram(text):
