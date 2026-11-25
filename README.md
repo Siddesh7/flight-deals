@@ -21,8 +21,8 @@ or other easy-visa countries is unusually cheap.
   committed back by the workflow.
 
 ### Deal blogs (`blogs.py`)
-Also forwards new posts from US deal blogs (escape.flights, escapehouston.com,
-cheapdfw.com, escapeatx.com). Only posts whose title mentions an Indian city (as origin
+Also forwards new posts from deal blogs: WordPress sites (escape.flights, escapehouston.com,
+cheapdfw.com, escapeatx.com, theflightdeal.com) and RSS feeds (Fly4free). Only posts whose title mentions an Indian city (as origin
 or destination) are sent; US-Europe, US-Asia and US domestic deals are skipped. Change
 `india_keywords` under `blogs` in `config.json`.
 

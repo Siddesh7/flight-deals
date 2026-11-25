@@ -26,5 +26,19 @@ class MatchTest(unittest.TestCase):
             "Nonstop Flights: Atlanta to/from Orlando, Tampa $84 round-trip – Southwest", WORDS))
 
 
+class RssTest(unittest.TestCase):
+    def test_parse_rss(self):
+        xml = b"""<?xml version="1.0"?><rss><channel>
+<item><title>Flights from Frankfurt to Delhi, India from &#8364;299</title>
+<link>https://example.com/a</link><guid>https://example.com/?p=1</guid>
+<pubDate>Wed, 25 Nov 2026 14:50:59 +0000</pubDate></item>
+</channel></rss>"""
+        [post] = blogs.parse_rss(xml)
+        self.assertEqual(post["id"], "https://example.com/?p=1")
+        self.assertEqual(post["title"], "Flights from Frankfurt to Delhi, India from \u20ac299")
+        self.assertEqual(post["posted"].isoformat(), "2026-11-25T14:50:59+00:00")
+        self.assertTrue(blogs.matches(post["title"], WORDS))
+
+
 if __name__ == "__main__":
     unittest.main()
