@@ -52,7 +52,6 @@
   23939
  ],
  "escape.flights": [
-  67722,
   67725,
   67728,
   67732,
@@ -101,7 +100,8 @@
   67893,
   67896,
   67900,
-  67902
+  67902,
+  67909
  ],
  "escapeatx.com": [
   17294,
@@ -156,8 +156,6 @@
   17534
  ],
  "escapehouston.com": [
-  29166,
-  29171,
   29178,
   29184,
   29188,
@@ -205,19 +203,17 @@
   29435,
   29438,
   29441,
-  29443
+  29443,
+  29448,
+  29451
  ],
  "https://www.fly4free.com/feed/": [
   "https://www.fly4free.com/?p=781658",
-  "https://www.fly4free.com/?p=781672",
-  "https://www.fly4free.com/?p=781691",
-  "https://www.fly4free.com/?p=781716",
   "https://www.fly4free.com/?p=781727",
   "https://www.fly4free.com/?p=781747",
   "https://www.fly4free.com/?p=781766",
   "https://www.fly4free.com/?p=781772",
   "https://www.fly4free.com/?p=781776",
-  "https://www.fly4free.com/?p=781781",
   "https://www.fly4free.com/?p=781795",
   "https://www.fly4free.com/?p=781815",
   "https://www.fly4free.com/?p=781835",
@@ -252,26 +248,18 @@
   "https://www.fly4free.com/?p=782194",
   "https://www.fly4free.com/?p=782195",
   "https://www.fly4free.com/?p=782206",
+  "https://www.fly4free.com/?p=782231",
   "https://www.fly4free.com/?p=782247",
   "https://www.fly4free.com/?p=782253",
   "https://www.fly4free.com/?p=782303",
   "https://www.fly4free.com/?p=782305",
   "https://www.fly4free.com/?p=782317",
-  "https://www.fly4free.com/?p=782345"
+  "https://www.fly4free.com/?p=782345",
+  "https://www.fly4free.com/?p=782355",
+  "https://www.fly4free.com/?p=782373",
+  "https://www.fly4free.com/?p=782383"
  ],
  "www.theflightdeal.com": [
-  328315,
-  328319,
-  328323,
-  328327,
-  328331,
-  328336,
-  328339,
-  328341,
-  328346,
-  328350,
-  328353,
-  328357,
   328362,
   328365,
   328367,
@@ -309,6 +297,18 @@
   328491,
   328495,
   328498,
-  328502
+  328502,
+  328505,
+  328508,
+  328512,
+  328515,
+  328518,
+  328521,
+  328527,
+  328531,
+  328535,
+  328539,
+  328543,
+  328547
  ]
 }
