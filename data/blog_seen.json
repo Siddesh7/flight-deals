@@ -52,7 +52,6 @@
   23939
  ],
  "escape.flights": [
-  67725,
   67728,
   67732,
   67735,
@@ -101,7 +100,8 @@
   67896,
   67900,
   67902,
-  67909
+  67909,
+  67913
  ],
  "escapeatx.com": [
   17294,
@@ -214,8 +214,6 @@
   "https://www.fly4free.com/?p=781766",
   "https://www.fly4free.com/?p=781772",
   "https://www.fly4free.com/?p=781776",
-  "https://www.fly4free.com/?p=781795",
-  "https://www.fly4free.com/?p=781815",
   "https://www.fly4free.com/?p=781835",
   "https://www.fly4free.com/?p=781853",
   "https://www.fly4free.com/?p=781860",
@@ -248,6 +246,7 @@
   "https://www.fly4free.com/?p=782194",
   "https://www.fly4free.com/?p=782195",
   "https://www.fly4free.com/?p=782206",
+  "https://www.fly4free.com/?p=782211",
   "https://www.fly4free.com/?p=782231",
   "https://www.fly4free.com/?p=782247",
   "https://www.fly4free.com/?p=782253",
@@ -257,12 +256,10 @@
   "https://www.fly4free.com/?p=782345",
   "https://www.fly4free.com/?p=782355",
   "https://www.fly4free.com/?p=782373",
-  "https://www.fly4free.com/?p=782383"
+  "https://www.fly4free.com/?p=782383",
+  "https://www.fly4free.com/?p=782424"
  ],
  "www.theflightdeal.com": [
-  328362,
-  328365,
-  328367,
   328371,
   328375,
   328379,
@@ -309,6 +306,9 @@
   328535,
   328539,
   328543,
-  328547
+  328547,
+  328551,
+  328555,
+  328560
  ]
 }
